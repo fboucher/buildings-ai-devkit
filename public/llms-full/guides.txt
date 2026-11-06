@@ -1,0 +1,20 @@
+# Buildings AI Developer Kit
+
+> Agent-ready documentation for the Schneider Electric EcoStruxure Building Data Platform APIs (REST API, GraphQL API, Event Hubs), generated from the official product documentation. Documentation only: this kit contains no live data.
+
+Calling the APIs requires authentication (see the Authentication pages). Live building data is only available through the authenticated APIs or the separate, authenticated API MCP server, never through this kit. Examples use fictional identifiers.
+
+---
+path: content/guides/first-request.md
+title: Make your first request
+section: Guides
+---
+
+# Make your first request
+
+> **Placeholder content.** This guide is fictional and will be rewritten against the real APIs.
+> It deliberately has no links into `content/api/`: those pages are replaced on every export.
+
+1. Get a token (see the Authentication page).
+2. List sites.
+3. Check that the response contains `Example Site`.

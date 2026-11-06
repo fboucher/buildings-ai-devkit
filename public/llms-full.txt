@@ -1,0 +1,95 @@
+# Buildings AI Developer Kit
+
+> Agent-ready documentation for the Schneider Electric EcoStruxure Building Data Platform APIs (REST API, GraphQL API, Event Hubs), generated from the official product documentation. Documentation only: this kit contains no live data.
+
+Calling the APIs requires authentication (see the Authentication pages). Live building data is only available through the authenticated APIs or the separate, authenticated API MCP server, never through this kit. Examples use fictional identifiers.
+
+---
+path: content/api/endpoints/legacy-widgets.md
+title: Legacy Widgets
+section: Example API / Endpoints
+status: deprecated
+---
+
+> **Deprecated.** Do not use for new integrations.
+
+# Legacy Widgets
+
+> **Placeholder content.** This page is fictional. It is replaced by the first real export.
+
+`GET /api/v0/widgets` is kept for existing integrations only. Use [Sites](sites.md) instead.
+
+---
+path: content/api/endpoints/sites.md
+title: Sites
+section: Example API / Endpoints
+---
+
+# Sites
+
+> **Placeholder content.** This page is fictional. It is replaced by the first real export.
+
+## List sites
+
+`GET /api/v1/sites`
+
+```json
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "name": "Example Site"
+  }
+]
+```
+
+See [Authentication](../overview/authentication.md) for the required header.
+
+---
+path: content/api/overview/authentication.md
+title: Authentication
+section: Example API / Overview
+---
+
+# Authentication
+
+> **Placeholder content.** This page is fictional. It is replaced by the first real export.
+
+Requests carry a bearer token in the `Authorization` header:
+
+```http
+GET /api/v1/sites HTTP/1.1
+Host: api.example.com
+Authorization: Bearer <token>
+```
+
+Next: [Sites](../endpoints/sites.md).
+
+---
+path: content/api/overview/introduction.md
+title: Introduction
+section: Example API / Overview
+---
+
+# Introduction
+
+> **Placeholder content.** This page is fictional. It is replaced by the first real export.
+
+The Example API exposes a spatial hierarchy of sites, buildings and spaces.
+
+- Authenticate first: see [Authentication](authentication.md).
+- Then list sites: see [Sites](../endpoints/sites.md).
+
+---
+path: content/guides/first-request.md
+title: Make your first request
+section: Guides
+---
+
+# Make your first request
+
+> **Placeholder content.** This guide is fictional and will be rewritten against the real APIs.
+> It deliberately has no links into `content/api/`: those pages are replaced on every export.
+
+1. Get a token (see the Authentication page).
+2. List sites.
+3. Check that the response contains `Example Site`.

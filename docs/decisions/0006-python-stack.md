@@ -11,5 +11,11 @@ MCP Python SDK (FastMCP) and is distributed with `uvx`.
 
 ## Rationale
 
-The source docs use MkDocs (Python). The exporter can load `mkdocs.yml` with MkDocs' own
-config loader and reuse its Markdown extensions instead of re-implementing them.
+The source docs use MkDocs (Python), so the whole toolchain stays in one ecosystem.
+
+## Note (P1)
+
+The source uses a custom theme with no Material-style syntax (no admonitions, tabs or
+snippets), so the exporter reads `mkdocs.yml` with a tolerant YAML loader instead of
+depending on MkDocs itself. Revisit if the source adopts Markdown extensions that need
+MkDocs to resolve.

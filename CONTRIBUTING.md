@@ -20,5 +20,12 @@ uv run pytest
 uv run devkit validate
 ```
 
+After changing anything under `content/`, regenerate the llms files (CI checks they are current):
+
+```bash
+uv run devkit llms
+```
+
 Content rules are in [docs/content-conventions.md](docs/content-conventions.md).
+Exporting docs from the source repo is described in [docs/exporter.md](docs/exporter.md).
 Design decisions are in [docs/decisions/](docs/decisions/README.md).

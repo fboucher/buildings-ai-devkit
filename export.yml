@@ -1,0 +1,31 @@
+# Exporter settings (ADR-0004, ADR-0005, ADR-0007).
+# This file is PUBLIC. Never put internal hostnames, people, customer or site names here:
+# those go in the block list, which lives in the source docs repo (.devkit/blocklist.txt).
+
+# Nav paths to export, matched against "Top/Group/Page label". "**" exports everything.
+include:
+  - "**"
+
+images:
+  # Docs-relative paths of images a human has checked and cleared. Everything else
+  # becomes alt text.
+  allow: []
+
+# Pages longer than this are flagged in the report.
+long_page_words: 2500
+
+pr_base: main
+
+llms:
+  site_url: https://schneiderelectricbuildings.github.io/buildings-ai-devkit
+  title: Buildings AI Developer Kit
+  summary: >-
+    Agent-ready documentation for the Schneider Electric EcoStruxure Building Data
+    Platform APIs (REST API, GraphQL API, Event Hubs), generated from the official
+    product documentation. Documentation only: this kit contains no live data.
+  notes: >-
+    Calling the APIs requires authentication (see the Authentication pages). Live building
+    data is only available through the authenticated APIs or the separate, authenticated
+    API MCP server, never through this kit. Examples use fictional identifiers.
+  optional_sections:
+    - Release Notes
