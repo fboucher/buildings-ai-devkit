@@ -10,7 +10,8 @@
 - Every exported page gets front matter:
   - `title`: from the nav label
   - `description`: the source `description:` front matter if present, otherwise the first
-    paragraph (truncated); pages using the fallback are listed in the export report
+    paragraph; shortened to whole sentences within 200 characters (word cut with an
+    ellipsis only when the first sentence is too long). Fallbacks are listed in the report
   - `section`: the nav path
 - No `source_url` for now: the only human docs site is internal, and links to it would
   expose an internal hostname and be unreachable for partners. The base URL is a config
@@ -28,9 +29,16 @@
   a human) are copied to `content/api/img/` and linked. The export report lists every
   image as copied or dropped.
 - The exporter is idempotent: no source change means no diff and no PR.
-- Invocation: `uv run devkit-export --source <internal docs repo>` writes `content/api/`,
-  `_source.json`, `llms.txt`, `llms-full.txt` and `export-report.md` to the working copy.
-  With `--pr`, it also creates branch `export/<date>-<source-sha>`, commits, pushes and
+- `mkdocs.yml` is found at the source root or one level below it, so no internal folder
+  name has to appear in this repo's config.
+- The exporter lives in the internal docs repo (`.devkit/`, ADR-0003). Its settings
+  (`include`, `images.allow`) are in `.devkit/export.yml` there.
+- Invocation, from the internal docs repo:
+  `uv run --project .devkit devkit-export --devkit <clone of this repo>` writes `content/api/`,
+  `_source.json` into the clone after `devkit validate` passes on a staged copy, then runs
+  `devkit llms` there. The report goes to `.devkit/out/export-report.md` in the source repo.
+  `--out <dir>` writes elsewhere (dry run); `--blocklist <path>` overrides the default.
+  With `--pr`, it also creates, in this repo, branch `export/<date>-<source-sha>`, commits, pushes and
   opens a PR (`gh pr create`) with the export report as the body. It never pushes to
   `main`. P5 automation uses the same `--pr` path.
 - Each export writes an export report (pages added/changed/removed, fallbacks used,

@@ -19,7 +19,9 @@ separate, authenticated API MCP server.
 content/          single source for all outputs
   api/            generated from the source docs (do not edit)
   guides/         authored here
-src/devkit/       Python tooling (validator now; exporter and generators next)
+public/           generated llms.txt, llms-full.txt, llms-full/<section>.txt
+src/devkit/       Python tooling: content validator, llms generator
+llms.yml          llms.txt settings
 tests/
 docs/             plan, decisions, conventions
 ```

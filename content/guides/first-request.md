@@ -6,7 +6,8 @@ description: Placeholder walkthrough from authentication to a first successful c
 # Make your first request
 
 > **Placeholder content.** This guide is fictional and will be rewritten against the real APIs.
+> It deliberately has no links into `content/api/`: those pages are replaced on every export.
 
-1. Get a token: [Authentication](../api/overview/authentication.md).
-2. Call [List sites](../api/endpoints/sites.md#list-sites).
+1. Get a token (see the Authentication page).
+2. List sites.
 3. Check that the response contains `Example Site`.

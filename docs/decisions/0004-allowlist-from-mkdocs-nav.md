@@ -17,14 +17,16 @@ outside `nav` (drafts, templates, unlisted pages).
   Excluded pages are listed in the export report with the reason.
 - An `include:` filter on nav paths selects a subset (e.g. one section for P1), so the
   scope can grow with a config change, not a code change.
-- A sanitization pass runs on every export: secret scanning (gitleaks), HTML comments,
-  and a block list. Any failure stops the export.
+- A sanitization pass runs on every export: the block list (below) and gitleaks (when
+  installed locally; CI always runs it). Any finding stops the export and nothing is written.
+- HTML comments are removed by the transform (they are hidden on the site but would be
+  visible to agents) and listed in the export report.
 - The block list (internal hostnames, non-production hosts, customer/site names,
   codenames, known-real ID patterns) is sensitive, so it lives **in the internal docs
   repo** at `.devkit/blocklist.txt` (repo root, outside the MkDocs `docs_dir`, so it is
   never published by the docs site). The exporter reads it from the `--source` repo and
-  **refuses to run if it is missing**. This repo only contains the generic rules and the
-  loader, never the list's contents.
+  **refuses to run if it is missing**. The exporter lives in the source repo too (ADR-0003),
+  so this repo contains neither the list nor the scanning code.
 
 ## Consequences
 
