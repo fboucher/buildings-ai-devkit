@@ -1,0 +1,3 @@
+# ADR-0009: single maintainer for now. Add a second reviewer here, then require approval.
+*                 @fboucher
+/content/api/     @fboucher
