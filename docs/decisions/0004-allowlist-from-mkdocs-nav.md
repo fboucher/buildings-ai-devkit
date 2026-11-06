@@ -25,8 +25,8 @@ outside `nav` (drafts, templates, unlisted pages).
   codenames, known-real ID patterns) is sensitive, so it lives **in the internal docs
   repo** at `.devkit/blocklist.txt` (repo root, outside the MkDocs `docs_dir`, so it is
   never published by the docs site). The exporter reads it from the `--source` repo and
-  **refuses to run if it is missing**. This repo only contains the generic rules and the
-  loader, never the list's contents.
+  **refuses to run if it is missing**. The exporter lives in the source repo too (ADR-0003),
+  so this repo contains neither the list nor the scanning code.
 
 ## Consequences
 

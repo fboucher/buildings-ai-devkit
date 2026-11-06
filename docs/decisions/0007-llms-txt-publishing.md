@@ -5,6 +5,7 @@
 
 ## Decision
 
+- Generated here by `devkit llms` from all of `content/`; settings in `llms.yml`.
 - Format follows https://llmstxt.org: H1 title, blockquote summary, H2 sections of links.
 - H2 sections mirror the top-level `nav` groups. Long reference material and release
   notes go under the spec's `## Optional` section.

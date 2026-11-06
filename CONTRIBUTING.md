@@ -27,5 +27,5 @@ uv run devkit llms
 ```
 
 Content rules are in [docs/content-conventions.md](docs/content-conventions.md).
-Exporting docs from the source repo is described in [docs/exporter.md](docs/exporter.md).
+`content/api/` is produced by the exporter maintained in the internal docs repo (ADR-0003).
 Design decisions are in [docs/decisions/](docs/decisions/README.md).

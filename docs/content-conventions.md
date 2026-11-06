@@ -12,7 +12,10 @@ All three outputs (`llms.txt`, the Agent Skill and the docs MCP server) are gene
 | `content/guides/` | Authored here | Task-oriented walkthroughs |
 | `content/examples/` | Authored here | Runnable samples, fictional data only |
 
-Pages in `content/api/` mirror the source docs paths 1:1 (ADR-0005).
+Pages in `content/api/` mirror the source docs paths 1:1 (ADR-0005). They are written by
+the exporter in the internal docs repo, which must produce pages that pass
+`devkit validate`, plus `content/api/_source.json` (source commit, exporter version, page
+order used by `llms.txt`).
 
 ## Front matter
 

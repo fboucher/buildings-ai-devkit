@@ -5,7 +5,8 @@
 
 ## Decision
 
-All tooling (exporter, `llms.txt` generator, skill packaging, docs MCP server) is Python:
+All tooling (the exporter in the source repo; the `llms.txt` generator, skill packaging and
+docs MCP server here) is Python:
 `uv` for environments and packaging, `pytest`, `ruff`. The docs MCP server uses the official
 MCP Python SDK (FastMCP) and is distributed with `uvx`.
 

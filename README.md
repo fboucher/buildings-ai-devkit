@@ -20,8 +20,8 @@ content/          single source for all outputs
   api/            generated from the source docs (do not edit)
   guides/         authored here
 public/           generated llms.txt, llms-full.txt, llms-full/<section>.txt
-src/devkit/       Python tooling: validator, exporter, llms generator
-export.yml        exporter settings (public; no sensitive values)
+src/devkit/       Python tooling: content validator, llms generator
+llms.yml          llms.txt settings
 tests/
 docs/             plan, decisions, conventions
 ```

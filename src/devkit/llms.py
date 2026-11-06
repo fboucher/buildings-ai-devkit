@@ -12,8 +12,39 @@ import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
+import yaml
+
 from devkit import frontmatter
-from devkit.export.config import LlmsConfig
+
+
+@dataclass(frozen=True)
+class LlmsConfig:
+    site_url: str
+    title: str
+    summary: str
+    notes: str = ""
+    optional_sections: tuple[str, ...] = ()
+
+
+class ConfigError(ValueError):
+    pass
+
+
+def load_config(path: Path) -> LlmsConfig:
+    if not path.is_file():
+        raise ConfigError(f"config file '{path}' not found")
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    try:
+        return LlmsConfig(
+            site_url=str(data["site_url"]).rstrip("/"),
+            title=str(data["title"]),
+            summary=" ".join(str(data["summary"]).split()),
+            notes=" ".join(str(data.get("notes") or "").split()),
+            optional_sections=tuple(data.get("optional_sections") or ()),
+        )
+    except (KeyError, TypeError) as exc:
+        raise ConfigError(f"'{path}' is missing a required key: {exc}") from exc
+
 
 AREA_TITLES = {"guides": "Guides", "brick": "Brick", "examples": "Examples"}
 AREA_ORDER = ("api", "guides", "brick", "examples")
