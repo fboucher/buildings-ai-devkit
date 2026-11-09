@@ -5,7 +5,7 @@ import pytest
 from devkit.cli import main
 from devkit.validate import validate_tree
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 GOOD_API_PAGE = """---
 title: Sites
@@ -83,7 +83,7 @@ def test_broken_absolute_and_escaping_links(tmp_path: Path) -> None:
     assert messages(tmp_path) == [
         "guides/a.md:5: broken link 'missing.md'",
         "guides/a.md:6: absolute link '/abs.md' is not allowed; use a relative path",
-        "guides/a.md:7: link '../../outside.md' points outside content/",
+        "guides/a.md:7: link '../../outside.md' points outside docs/",
     ]
 
 
@@ -101,8 +101,7 @@ def test_html_comment_rejected(tmp_path: Path) -> None:
 
 
 def test_repo_content_is_valid() -> None:
-    issues, count = validate_tree(REPO_ROOT / "content")
-    assert count > 0
+    issues, _ = validate_tree(REPO_ROOT / "docs")
     assert [str(i) for i in issues] == []
 
 

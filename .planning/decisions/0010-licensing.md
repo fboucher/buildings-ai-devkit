@@ -14,10 +14,10 @@ redistributable, which is not intended for company documentation.
 | Part | Proposed license |
 |---|---|
 | Code (`tools/`, `llms/`, `skill/`, `mcp-server/`) | MIT or Apache-2.0, copyright Schneider Electric |
-| Exported docs (`content/api/`) | Not open source: copyright Schneider Electric, all rights reserved, provided for use with Schneider Electric APIs |
-| Authored guides and Brick pages (`content/guides/`, `content/brick/`) | Legal's choice (e.g. CC-BY-4.0); Brick excerpts follow Brick's license terms (spike S-5) |
+| Exported docs (`docs/api/`) | Not open source: copyright Schneider Electric, all rights reserved, provided for use with Schneider Electric APIs |
+| Authored guides and Brick pages (`docs/guides/`, `docs/brick/`) | Legal's choice (e.g. CC-BY-4.0); Brick excerpts follow Brick's license terms (spike S-5) |
 
-- Root `LICENSE` covers code; `content/LICENSE` covers content; README states the split.
+- Root `LICENSE` covers code; `docs/LICENSE` covers content; README states the split.
 - `NOTICE` lists third-party attributions (incl. Brick).
 
 ## Consequences

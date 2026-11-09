@@ -1,7 +1,7 @@
 """Command line entry point: ``devkit <command>``.
 
-``content/api/`` is produced by the exporter that lives in the source docs repo
-(ADR-0003). This tool validates ``content/`` and generates the outputs built from it.
+``docs/api/`` is produced by the exporter that lives in the source docs repo
+(ADR-0003). This tool validates ``docs/`` and generates the outputs built from it.
 """
 
 from __future__ import annotations
@@ -40,7 +40,7 @@ def _cmd_llms(args: argparse.Namespace) -> int:
     except llms.ConfigError as exc:
         _err(str(exc))
         return 2
-    files = llms.generate(repo / "content", cfg)
+    files = llms.generate(repo / "docs", cfg)
     public = repo / "public"
     if args.check:
         stale = llms.stale(public, files)
@@ -60,13 +60,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    validate = sub.add_parser("validate", help="check front matter and links under content/")
-    validate.add_argument("--root", default="content", help="content root (default: content)")
+    validate = sub.add_parser("validate", help="check front matter and links under docs/")
+    validate.add_argument("--root", default="docs", help="content root (default: docs)")
     validate.set_defaults(func=_cmd_validate)
 
     llms_cmd = sub.add_parser("llms", help="generate public/llms.txt and llms-full files")
     llms_cmd.add_argument("--repo", default=".", help="devkit repo root (default: .)")
-    llms_cmd.add_argument("--config", default="llms.yml")
+    llms_cmd.add_argument("--config", default="tools/llms.yml")
     llms_cmd.add_argument("--check", action="store_true", help="fail if committed files differ")
     llms_cmd.set_defaults(func=_cmd_llms)
     return parser

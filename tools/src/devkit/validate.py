@@ -1,6 +1,6 @@
-"""Validate pages under ``content/`` against the front matter and link conventions.
+"""Validate pages under ``docs/`` against the front matter and link conventions.
 
-See ``docs/content-conventions.md`` for the rules enforced here.
+See ``.planning/content-conventions.md`` for the rules enforced here.
 """
 
 from __future__ import annotations
@@ -124,7 +124,7 @@ def _check_link(target: str, path: Path, root: Path) -> str | None:
         return f"absolute link '{target}' is not allowed; use a relative path"
     resolved = (path.parent / file_part).resolve()
     if not resolved.is_relative_to(root):
-        return f"link '{target}' points outside content/"
+        return f"link '{target}' points outside docs/"
     if not resolved.exists():
         return f"broken link '{target}'"
     return None

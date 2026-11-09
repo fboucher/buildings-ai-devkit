@@ -11,17 +11,17 @@ reachable from outside the corporate network.
 ## Decision
 
 - The internal docs repo stays the source of truth.
-- `content/api/` in this repo is a **generated artifact**, fully overwritten on each export.
+- `docs/api/` in this repo is a **generated artifact**, fully overwritten on each export.
   It is never edited by hand.
 - Content problems found during export are fixed upstream in the internal docs repo, or by
   improving the exporter rules there.
-- `content/brick/`, `content/guides/` and `content/examples/` are authored in this repo and
+- `docs/brick/`, `docs/guides/` and `docs/examples/` are authored in this repo and
   never touched by the exporter.
 - **Split of responsibilities:**
 
   | Internal docs repo | This repo (public) |
   |---|---|
-  | The exporter (source docs → `content/api/`) | `content/` (exported and authored pages) |
+  | The exporter (source docs → `docs/api/`) | `docs/` (exported and authored pages) |
   | Export config (nav filter, cleared images) | Content validator (`devkit validate`) |
   | Block list of sensitive terms | Generators: `llms.txt` now; skill (P2), docs MCP server (P3) |
   | Later: CI that runs the export and opens PRs here | CI, GitHub Pages publishing |
@@ -42,5 +42,5 @@ reachable from outside the corporate network.
 ## Consequences
 
 - The contract between the two repos is: pages that pass `devkit validate`, plus
-  `content/api/_source.json` (source commit, exporter version, page order).
+  `docs/api/_source.json` (source commit, exporter version, page order).
 - Changes to the exporter need review in the internal docs repo.
