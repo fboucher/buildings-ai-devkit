@@ -1,7 +1,7 @@
 """Command line entry point: ``devkit <command>``.
 
-``docs/api/`` is produced by the exporter that lives in the source docs repo
-(ADR-0003). This tool validates ``docs/`` and generates the outputs built from it.
+``docs/api/`` is produced by the exporter that lives in the source docs repo.
+This tool validates ``docs/`` and generates the outputs built from it.
 """
 
 from __future__ import annotations
@@ -10,7 +10,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from devkit import __version__, llms
+from devkit import __version__, llms, skill
 from devkit.validate import validate_tree
 
 
@@ -55,6 +55,34 @@ def _cmd_llms(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_skill(args: argparse.Namespace) -> int:
+    repo = Path(args.repo)
+    try:
+        cfg = skill.load_config(repo / args.config)
+        llms_cfg = llms.load_config(repo / args.llms_config)
+    except (skill.SkillError, llms.ConfigError) as exc:
+        _err(str(exc))
+        return 2
+    files = skill.generate(repo / "docs", cfg, llms_cfg)
+    target = skill.plugin_dir(repo, cfg)
+    if args.check:
+        stale = skill.stale(target, files)
+        if stale:
+            shown = ", ".join(stale[:5]) + (" ..." if len(stale) > 5 else "")
+            _err(f"skill out of date: {shown}. Run 'uv run --project tools devkit skill'.")
+            return 1
+        print("skill up to date")
+        return 0
+    if args.zip:
+        out = skill.build_zip(files, cfg, Path(args.zip))
+        print(f"Wrote {out}")
+        return 0
+    skill.write(target, files)
+    pages = sum(1 for p in files if "/references/" in p)
+    print(f"Wrote skill '{cfg.name}' with {pages} reference page(s) to {target}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="devkit", description=__doc__)
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -69,6 +97,15 @@ def build_parser() -> argparse.ArgumentParser:
     llms_cmd.add_argument("--config", default="tools/llms.yml")
     llms_cmd.add_argument("--check", action="store_true", help="fail if committed files differ")
     llms_cmd.set_defaults(func=_cmd_llms)
+
+    skill_cmd = sub.add_parser("skill", help="generate the Agent Skill / Claude Code plugin")
+    skill_cmd.add_argument("--repo", default=".", help="devkit repo root (default: .)")
+    skill_cmd.add_argument("--config", default="tools/skill.yml")
+    skill_cmd.add_argument("--llms-config", default="tools/llms.yml")
+    group = skill_cmd.add_mutually_exclusive_group()
+    group.add_argument("--check", action="store_true", help="fail if committed files differ")
+    group.add_argument("--zip", help="write the skill folder as a zip to this path instead")
+    skill_cmd.set_defaults(func=_cmd_skill)
     return parser
 
 

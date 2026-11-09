@@ -1,0 +1,22 @@
+# Settings for the generated Agent Skill and Claude Code plugin.
+# This file is PUBLIC. Never put internal hostnames, people, customer or site names here.
+
+plugin:
+  name: buildings-ai-devkit
+  author: Schneider Electric
+  description: >-
+    Agent Skill with the Schneider Electric EcoStruxure Building Data Platform API
+    documentation, for writing and debugging integration code.
+
+skill:
+  # Lowercase letters, digits and hyphens; must not contain "claude" or "anthropic".
+  name: building-data-platform-api
+  # At most 1024 characters. Says what the skill contains and when to use it.
+  description: >-
+    Reference documentation for the Schneider Electric EcoStruxure Building Data
+    Platform APIs: REST API, GraphQL API and Event Hubs, including authentication,
+    the spatial hierarchy (sites, buildings, floors, spaces), equipment, points,
+    devices, measurement and historical values, datasets and the Brick-based data
+    model. Use when writing, debugging or reviewing code that calls these APIs, or when
+    answering questions about their endpoints, fields, queries, mutations or data model.
+  license: See the LICENSE file of the buildings-ai-devkit repository.

@@ -26,6 +26,28 @@ Need everything in one file? Use `llms-full.txt` (all pages), or one section at 
 with `llms-full/<section>.txt` (for example `llms-full/rest-api.txt`) if your agent has a
 small context window. `llms.txt` lists them all under **Full text**.
 
+## Install the Agent Skill
+
+The skill bundles every page plus a small search script, so your agent finds the right
+page itself and works offline. It loads only when a task needs it.
+
+**Claude Code** (one step, Claude Code 2.1.275 or later):
+
+```text
+/plugin install buildings-ai-devkit --marketplace SchneiderElectricBuildings/buildings-ai-devkit
+```
+
+Or in two steps: `/plugin marketplace add SchneiderElectricBuildings/buildings-ai-devkit`,
+then `/plugin install buildings-ai-devkit@buildings-ai-devkit`. Get new docs by running
+`claude plugin update buildings-ai-devkit`, or turn on auto-update for this marketplace
+under `/plugin` → Marketplaces (it is off by default).
+
+**GitHub Copilot, Cursor, OpenAI Codex**: download `building-data-platform-api.zip` from
+the latest [release](../../releases/latest) and unzip it into `.agents/skills/` in your
+project (or `~/.agents/skills/` for all projects).
+
+**claude.ai**: upload the same zip as a skill in your settings.
+
 ## Good to know
 
 - **Documentation only.** The kit contains no live data and no credentials. Calling the
@@ -43,7 +65,7 @@ small context window. `llms.txt` lists them all under **Full text**.
 | Format | Status |
 |---|---|
 | `llms.txt` / `llms-full.txt` | First release in progress |
-| Agent Skill (install once, loaded on demand) | Planned |
+| Agent Skill (install once, loaded on demand) | First release in progress |
 | Docs MCP server (search and fetch pages from your agent) | Planned |
 
 All formats are generated from the same pages in [`docs/`](docs/).
@@ -54,8 +76,8 @@ All formats are generated from the same pages in [`docs/`](docs/).
 |---|---|
 | [`docs/`](docs/) | The documentation, as agent-friendly markdown: `api/` (generated from the official product docs), `guides/` |
 | [`public/`](public/) | Generated `llms.txt`, `llms-full.txt` and per-section files |
+| [`plugins/`](plugins/) | Generated Agent Skill, packaged as a Claude Code plugin (marketplace in `.claude-plugin/`) |
 | [`tools/`](tools/) | Tooling that validates `docs/` and generates `public/` |
-| [`.planning/`](.planning/) | Delivery plan and design decisions |
 
 ## Contributing and license
 

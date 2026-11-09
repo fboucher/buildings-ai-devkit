@@ -1,6 +1,6 @@
 """Validate pages under ``docs/`` against the front matter and link conventions.
 
-See ``.planning/content-conventions.md`` for the rules enforced here.
+See "Content rules" in CONTRIBUTING.md for the rules enforced here.
 """
 
 from __future__ import annotations

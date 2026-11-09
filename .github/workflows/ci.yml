@@ -33,6 +33,9 @@ jobs:
       - name: Check llms.txt is up to date
         run: uv run --project tools devkit llms --check
 
+      - name: Check the skill is up to date
+        run: uv run --project tools devkit skill --check
+
   secrets:
     runs-on: ubuntu-latest
     steps:
