@@ -84,3 +84,12 @@ def test_repo_llms_files_are_up_to_date() -> None:
     cfg = llms.load_config(REPO_ROOT / "tools" / "llms.yml")
     files = llms.generate(REPO_ROOT / "docs", cfg)
     assert llms.stale(REPO_ROOT / "public", files) == []
+
+
+def test_empty_docs_produce_header_only_index(tmp_path: Path) -> None:
+    (tmp_path / "tools").mkdir()
+    shutil.copy(REPO_ROOT / "tools" / "llms.yml", tmp_path / "tools" / "llms.yml")
+    assert main(["llms", "--repo", str(tmp_path)]) == 0
+    index = (tmp_path / "public" / "llms.txt").read_text(encoding="utf-8")
+    assert index.startswith("# Buildings AI Developer Kit\n")
+    assert [line for line in index.splitlines() if line.startswith("## ")] == ["## Full text"]

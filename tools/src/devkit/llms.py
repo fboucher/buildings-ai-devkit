@@ -89,6 +89,8 @@ def collect(content_dir: Path) -> list[Entry]:
 
 
 def _areas(content_dir: Path) -> list[str]:
+    if not content_dir.is_dir():
+        return []
     present = sorted(p.name for p in content_dir.iterdir() if p.is_dir())
     known = [a for a in AREA_ORDER if a in present]
     return known + [a for a in present if a not in AREA_ORDER]

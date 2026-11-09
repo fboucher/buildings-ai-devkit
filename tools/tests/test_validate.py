@@ -101,8 +101,7 @@ def test_html_comment_rejected(tmp_path: Path) -> None:
 
 
 def test_repo_content_is_valid() -> None:
-    issues, count = validate_tree(REPO_ROOT / "docs")
-    assert count > 0
+    issues, _ = validate_tree(REPO_ROOT / "docs")
     assert [str(i) for i in issues] == []
 
 

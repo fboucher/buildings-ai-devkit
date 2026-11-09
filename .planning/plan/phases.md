@@ -8,8 +8,8 @@ See the [decision log](../decisions/README.md) for the reasoning behind each cho
 
 | Phase | Partner-visible outcome | Status |
 |---|---|---|
-| **P0** Skeleton | none (internal) | not started |
-| **P1** Agent-optimised docs + `llms.txt` | "Point your agent at `llms.txt`" (public debut) | not started |
+| **P0** Skeleton | none (internal) | done |
+| **P1** Agent-optimised docs + `llms.txt` | "Point your agent at `llms.txt`" (public debut) | in progress |
 | **P2** Agent Skill + first eval | "Install this skill", before/after evidence | not started |
 | **P3** Docs MCP server (local, stdio) | "Add this MCP server" (`uvx`) | not started |
 | **P4** Brick guidance | Brick version mapping, class subset, worked examples, optional `brick_lookup` | not started |
@@ -24,6 +24,8 @@ Built in the personal development repo, using **placeholder content only**.
 - Repo layout: `docs/`, `tools/` (validator, generators), `public/`, `.github/workflows/`
 - Front matter conventions (see ADR-0005) and a content validator
 - 3-5 placeholder pages so generators and CI can be developed end to end
+  (removed in P1: the tools are tested with fixtures, and `docs/` stays empty until the
+  first real export)
 
 ## P1: Agent-optimised docs + `llms.txt` (public debut)
 

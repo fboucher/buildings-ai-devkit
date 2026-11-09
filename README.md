@@ -5,8 +5,7 @@ Documentation for the **Schneider Electric EcoStruxure™ Building Data Platform
 GitHub Copilot and others) can read it and write working integration code.
 
 > **Early access.** This kit is shared with selected partners while it is being built.
-> Content in this repository is currently placeholder; the real documentation is added
-> with the first export. Feedback is welcome.
+> Feedback is welcome.
 
 ## Use it with your AI agent
 
