@@ -1,4 +1,4 @@
-"""Generate ``llms.txt`` and ``llms-full.txt`` from ``docs/`` (ADR-0007).
+"""Generate ``llms.txt`` and ``llms-full.txt`` from ``docs/``.
 
 Format: https://llmstxt.org. Links point to the raw markdown pages published on GitHub
 Pages. API pages keep the source ``nav`` order recorded in ``docs/api/_source.json``.

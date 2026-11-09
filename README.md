@@ -78,7 +78,6 @@ All formats are generated from the same pages in [`docs/`](docs/).
 | [`public/`](public/) | Generated `llms.txt`, `llms-full.txt` and per-section files |
 | [`plugins/`](plugins/) | Generated Agent Skill, packaged as a Claude Code plugin (marketplace in `.claude-plugin/`) |
 | [`tools/`](tools/) | Tooling that validates `docs/` and generates `public/` |
-| [`.planning/`](.planning/) | Delivery plan and design decisions |
 
 ## Contributing and license
 

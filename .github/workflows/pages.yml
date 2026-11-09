@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   deploy:
-    # ADR-0001: only the canonical org repo publishes. Forks and the personal dev repo never do.
+    # Only the canonical org repo publishes. Forks and the personal dev repo never do.
     if: github.repository == 'SchneiderElectricBuildings/buildings-ai-devkit'
     runs-on: ubuntu-latest
     environment:

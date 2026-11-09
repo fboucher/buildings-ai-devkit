@@ -1,7 +1,7 @@
 """Command line entry point: ``devkit <command>``.
 
-``docs/api/`` is produced by the exporter that lives in the source docs repo
-(ADR-0003). This tool validates ``docs/`` and generates the outputs built from it.
+``docs/api/`` is produced by the exporter that lives in the source docs repo.
+This tool validates ``docs/`` and generates the outputs built from it.
 """
 
 from __future__ import annotations

@@ -1,4 +1,4 @@
-"""Generate the Agent Skill and its Claude Code plugin from ``docs/`` (ADR-0011).
+"""Generate the Agent Skill and its Claude Code plugin from ``docs/``.
 
 Layout written under ``plugins/<plugin>/``::
 

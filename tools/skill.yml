@@ -1,4 +1,4 @@
-# Settings for the generated Agent Skill and Claude Code plugin (ADR-0011).
+# Settings for the generated Agent Skill and Claude Code plugin.
 # This file is PUBLIC. Never put internal hostnames, people, customer or site names here.
 
 plugin:

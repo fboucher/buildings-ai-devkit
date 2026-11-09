@@ -1,4 +1,4 @@
-# Generated outputs must be byte-identical across machines (ADR-0005: idempotent export).
+# Generated outputs must be byte-identical across machines.
 * text=auto eol=lf
 *.png binary
 *.jpg binary

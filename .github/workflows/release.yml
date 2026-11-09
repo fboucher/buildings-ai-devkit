@@ -2,7 +2,7 @@ name: Release
 
 # Publishes the Agent Skill as a zip on a GitHub release, for agents other than Claude Code
 # (GitHub Copilot, Cursor, Codex: unzip into .agents/skills/; claude.ai: upload the zip).
-# Tag with CalVer (ADR-0008), e.g. `git tag 2026.11.09 && git push origin 2026.11.09`.
+# Tag with CalVer (YYYY.MM.DD), e.g. `git tag 2026.11.09 && git push origin 2026.11.09`.
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   release:
-    # ADR-0001: only the canonical org repo publishes releases.
+    # Only the canonical org repo publishes releases.
     if: github.repository == 'SchneiderElectricBuildings/buildings-ai-devkit'
     runs-on: ubuntu-latest
     steps:

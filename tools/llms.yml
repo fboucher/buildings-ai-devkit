@@ -1,4 +1,4 @@
-# Settings for public/llms.txt and public/llms-full*.txt (ADR-0007).
+# Settings for public/llms.txt and public/llms-full*.txt.
 # This file is PUBLIC. Never put internal hostnames, people, customer or site names here.
 
 site_url: https://schneiderelectricbuildings.github.io/buildings-ai-devkit
