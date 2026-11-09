@@ -1,16 +1,52 @@
 # Buildings AI Developer Kit
 
-Documentation for the **Schneider Electric EcoStruxure™ Building Data Platform APIs**
-(REST API, GraphQL API, Event Hubs), packaged so AI coding agents (Claude Code, Cursor,
-GitHub Copilot and others) can read it and write working integration code.
+Everything your AI coding agent (Claude Code, GitHub Copilot, Cursor, Codex and others)
+needs to write working code against the **Schneider Electric EcoStruxure™ Building Data
+Platform APIs**: REST API, GraphQL API and Event Hubs.
 
-> [!NOTE] 
+> [!NOTE]
 > **Early access.** This kit is shared with selected partners while it is being built.
 > Feedback is welcome.
 
-## Use it with your AI agent
+## What's in the kit
 
-Point your agent at the index:
+| | Tool | What it gives your agent | Status |
+|---|---|---|---|
+| 📄 | [**Agent-friendly docs**](#-agent-friendly-docs) | The official API documentation as clean markdown, one page per topic | ✅ Ready |
+| 🔗 | [**llms.txt**](#-llmstxt) | One URL that indexes every page, plus full-text bundles | ✅ Ready |
+| 🧩 | [**Agent Skill**](#-agent-skill) | All the docs plus a search tool, installed once and loaded only when needed | ✅ Ready |
+| 🔍 | [**Docs MCP server**](#-docs-mcp-server) | Search and fetch docs pages as tools in your agent | 🚧 Coming soon |
+| 🏢 | [**Brick schema guidance**](#-brick-schema-guidance) | How our APIs use the Brick ontology, with worked examples | 🚧 Coming soon |
+
+**Which one should I use?**
+
+- **Quickest start, any agent:** paste the [llms.txt](#-llmstxt) URL into your prompt.
+- **Working with the APIs every day:** install the [Agent Skill](#-agent-skill). Your agent
+  looks up the right page by itself, offline.
+- **Building your own tooling or reading the docs yourself:** use the
+  [agent-friendly docs](#-agent-friendly-docs) directly.
+
+All tools are generated from the same pages, so they always say the same thing.
+
+---
+
+## 📄 Agent-friendly docs
+
+The official Building Data Platform documentation, converted to plain markdown that agents
+read well: one page per topic, a short description on every page, no site navigation, and
+screenshots replaced by text. Pages for deprecated features are clearly labelled.
+
+| Folder | Contents |
+|---|---|
+| [`docs/api/`](docs/api/) | Concepts, REST API, GraphQL API, implementation guides, FAQ, release notes |
+| [`docs/guides/`](docs/guides/) | Task-oriented walkthroughs |
+
+The pages are regenerated from the official product documentation on each docs release.
+
+## 🔗 llms.txt
+
+A single index, following the [llms.txt](https://llmstxt.org) convention, that any agent
+can fetch:
 
 ```text
 https://schneiderelectricbuildings.github.io/buildings-ai-devkit/llms.txt
@@ -23,62 +59,73 @@ https://schneiderelectricbuildings.github.io/buildings-ai-devkit/llms.txt
 | Cursor | Add the URL as a custom doc (`@Docs` → *Add new doc*), then mention it with `@` |
 | GitHub Copilot | Add that sentence to `.github/copilot-instructions.md` |
 
-Need everything in one file? Use `llms-full.txt` (all pages), or one section at a time
-with `llms-full/<section>.txt` (for example `llms-full/rest-api.txt`) if your agent has a
-small context window. `llms.txt` lists them all under **Full text**.
+Need everything at once? `llms-full.txt` holds every page in one file, and
+`llms-full/<section>.txt` (for example `llms-full/rest-api.txt`) holds one section, for
+agents with a small context window. `llms.txt` links them all under **Full text**.
 
-## Install the Agent Skill
+## 🧩 Agent Skill
 
-The skill bundles every page plus a small search script, so your agent finds the right
-page itself and works offline. It loads only when a task needs it.
+An [Agent Skill](https://agentskills.io) named `building-data-platform-api`. It bundles every
+page, an index, rules for using the docs (look up the page first, use documented names
+only, authenticate, test against UAT) and a search script. Your agent loads it only when a
+task involves these APIs, and finds the right page without reading everything.
 
-**Claude Code** (one step, Claude Code 2.1.275 or later):
+**Claude Code** (Claude Code 2.1.275 or later):
 
 ```text
 /plugin install buildings-ai-devkit --marketplace SchneiderElectricBuildings/buildings-ai-devkit
 ```
 
 Or in two steps: `/plugin marketplace add SchneiderElectricBuildings/buildings-ai-devkit`,
-then `/plugin install buildings-ai-devkit@buildings-ai-devkit`. Get new docs by running
+then `/plugin install buildings-ai-devkit@buildings-ai-devkit`. Get new docs with
 `claude plugin update buildings-ai-devkit`, or turn on auto-update for this marketplace
 under `/plugin` → Marketplaces (it is off by default).
 
-**GitHub Copilot, Cursor, OpenAI Codex**: download `building-data-platform-api.zip` from
+**GitHub Copilot, Cursor, OpenAI Codex:** download `building-data-platform-api.zip` from
 the latest [release](../../releases/latest) and unzip it into `.agents/skills/` in your
-project (or `~/.agents/skills/` for all projects).
+project (or `~/.agents/skills/` for all your projects).
 
-**claude.ai**: upload the same zip as a skill in your settings.
+**claude.ai:** upload the same zip as a skill in your settings.
+
+## 🔍 Docs MCP server
+
+> 🚧 **Coming soon.**
+
+A public, read-only [MCP](https://modelcontextprotocol.io) server that lets your agent
+search the docs and fetch pages as tools (`docs_search`, `docs_get_page`), without
+installing the docs locally. It is separate from the authenticated API MCP server, which
+accesses live building data; the two can be used side by side.
+
+## 🏢 Brick schema guidance
+
+> 🚧 **Coming soon.**
+
+Our APIs describe buildings with the [Brick schema](https://brickschema.org), an open
+ontology for building data. This guidance will cover which Brick version our APIs target,
+the classes and relationships they return, our conventions, and worked examples such as
+*"find all temperature sensors feeding a given air handling unit"*. It links to the
+official Brick definitions rather than copying them.
+
+---
 
 ## Good to know
 
 - **Documentation only.** The kit contains no live data and no credentials. Calling the
   APIs requires authentication, described in the *Authentication* pages.
 - **Test against UAT.** The API introduction pages document the UAT environment partners
-  use for testing.
+  and ISVs use for testing.
 - **Examples use fictional identifiers.** Replace them with IDs from your own environment.
-- **Deprecated features are labelled** `(deprecated)` so agents do not suggest them for
-  new code.
 - Live building data is only available through the authenticated APIs (or the separate,
   authenticated API MCP server), never through this kit.
-
-## Formats
-
-| Format | Status |
-|---|---|
-| `llms.txt` / `llms-full.txt` | First release in progress |
-| Agent Skill (install once, loaded on demand) | First release in progress |
-| Docs MCP server (search and fetch pages from your agent) | Planned |
-
-All formats are generated from the same pages in [`docs/`](docs/).
 
 ## Repository layout
 
 | Folder | What |
 |---|---|
-| [`docs/`](docs/) | The documentation, as agent-friendly markdown: `api/` (generated from the official product docs), `guides/` |
+| [`docs/`](docs/) | Agent-friendly docs |
 | [`public/`](public/) | Generated `llms.txt`, `llms-full.txt` and per-section files |
-| [`plugins/`](plugins/) | Generated Agent Skill, packaged as a Claude Code plugin (marketplace in `.claude-plugin/`) |
-| [`tools/`](tools/) | Tooling that validates `docs/` and generates `public/` |
+| [`plugins/`](plugins/) | Generated Agent Skill, packaged as a Claude Code plugin (marketplace in [`.claude-plugin/`](.claude-plugin/)) |
+| [`tools/`](tools/) | Tooling that validates `docs/` and generates the other tools |
 
 ## Contributing and license
 
