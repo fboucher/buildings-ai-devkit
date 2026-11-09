@@ -118,15 +118,6 @@ official Brick definitions rather than copying them.
 - Live building data is only available through the authenticated APIs (or the separate,
   authenticated API MCP server), never through this kit.
 
-## Repository layout
-
-| Folder | What |
-|---|---|
-| [`docs/`](docs/) | Agent-friendly docs |
-| [`public/`](public/) | Generated `llms.txt`, `llms-full.txt` and per-section files |
-| [`plugins/`](plugins/) | Generated Agent Skill, packaged as a Claude Code plugin (marketplace in [`.claude-plugin/`](.claude-plugin/)) |
-| [`tools/`](tools/) | Tooling that validates `docs/` and generates the other tools |
-
 ## Contributing and license
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Licensing is being finalised: the tooling and the
