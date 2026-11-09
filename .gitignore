@@ -9,3 +9,6 @@ build/
 
 # Local exporter scratch output
 /.export-tmp/
+
+# Local-only previews of real exported docs. Never committed (repo is public).
+/.local/

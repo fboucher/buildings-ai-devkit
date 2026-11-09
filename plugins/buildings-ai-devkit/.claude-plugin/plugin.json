@@ -1,0 +1,7 @@
+{
+  "name": "buildings-ai-devkit",
+  "description": "Agent Skill with the Schneider Electric EcoStruxure Building Data Platform API documentation, for writing and debugging integration code.",
+  "author": {
+    "name": "Schneider Electric"
+  }
+}

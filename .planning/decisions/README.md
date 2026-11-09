@@ -14,3 +14,4 @@ Lightweight ADRs. One decision per file. Status is `Accepted`, `Proposed` or `Su
 | [0008](0008-versioning.md) | Latest-only versioning with provenance | Accepted |
 | [0009](0009-review-and-branch-protection.md) | Review and branch protection | Accepted |
 | [0010](0010-licensing.md) | Split licensing for code and content | Proposed (legal) |
+| [0011](0011-agent-skill-packaging.md) | Agent Skill packaging and distribution | Accepted |

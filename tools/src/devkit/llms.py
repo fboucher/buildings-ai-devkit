@@ -106,7 +106,7 @@ def _ordered_pages(area_dir: Path) -> list[Path]:
     return sorted(pages, key=lambda p: (rank.get(p.relative_to(area_dir).as_posix(), len(rank)), p))
 
 
-def _grouped(entries: list[Entry], cfg: LlmsConfig) -> list[tuple[str, list[Entry]]]:
+def grouped(entries: list[Entry], cfg: LlmsConfig) -> list[tuple[str, list[Entry]]]:
     groups: dict[str, list[Entry]] = {}
     optional: list[Entry] = []
     for entry in entries:
@@ -133,18 +133,18 @@ def slug(group: str) -> str:
 
 def render_index(entries: list[Entry], cfg: LlmsConfig) -> str:
     """The ``llms.txt`` index. ``## Optional`` stays last, as the llms.txt spec expects."""
-    grouped = _grouped(entries, cfg)
+    groups = grouped(entries, cfg)
     parts = [_header(cfg)]
-    parts += [_link_list(g, items, cfg) for g, items in grouped if g != OPTIONAL]
+    parts += [_link_list(g, items, cfg) for g, items in groups if g != OPTIONAL]
 
     full = [f"- [All pages]({cfg.site_url}/llms-full.txt): every page in one file"]
     full += [
         f"- [{g}]({cfg.site_url}/{SECTION_DIR}/{slug(g)}.txt): full text of this section"
-        for g, _ in grouped
+        for g, _ in groups
     ]
     parts.append("## Full text\n\n" + "\n".join(full) + "\n")
 
-    parts += [_link_list(g, items, cfg) for g, items in grouped if g == OPTIONAL]
+    parts += [_link_list(g, items, cfg) for g, items in groups if g == OPTIONAL]
     return "\n".join(parts)
 
 
@@ -175,10 +175,10 @@ def estimate_tokens(text: str) -> int:
 def generate(content_dir: Path, cfg: LlmsConfig) -> dict[str, str]:
     """Return ``{path relative to public/: text}``."""
     entries = collect(content_dir)
-    grouped = _grouped(entries, cfg)
-    ordered = [e for _, items in grouped for e in items]
+    groups = grouped(entries, cfg)
+    ordered = [e for _, items in groups for e in items]
     files = {"llms.txt": render_index(entries, cfg), "llms-full.txt": render_full(ordered, cfg)}
-    for group, items in grouped:
+    for group, items in groups:
         files[f"{SECTION_DIR}/{slug(group)}.txt"] = render_full(items, cfg)
     return files
 

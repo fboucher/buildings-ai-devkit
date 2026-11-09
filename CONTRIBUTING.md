@@ -14,6 +14,7 @@
 |---|---|
 | `docs/` | The documentation published by the kit: `api/` (generated), `guides/` (authored here) |
 | `public/` | Generated `llms.txt` and `llms-full` files. Do not edit; regenerate |
+| `plugins/` | Generated Agent Skill (Claude Code plugin). Do not edit; regenerate |
 | `tools/` | Python tooling: validator and generators ([tools/README.md](tools/README.md)) |
 | `.planning/` | Delivery plan, decision records (ADRs), content conventions |
 
@@ -28,10 +29,11 @@ uv run --project tools pytest tools
 uv run --project tools devkit validate
 ```
 
-After changing anything under `docs/`, regenerate the llms files (CI checks they are current):
+After changing anything under `docs/`, regenerate the outputs (CI checks they are current):
 
 ```bash
 uv run --project tools devkit llms
+uv run --project tools devkit skill
 ```
 
 On the corporate network, set `UV_SYSTEM_CERTS=1` so uv trusts the Windows certificate store.
