@@ -12,7 +12,7 @@ outside `nav` (drafts, templates, unlisted pages).
 ## Decision
 
 - A page is exported only if **both** hold:
-  1. it is listed in `nav` (files under `docs/` that are not in `nav` are never exported), and
+  1. it is listed in `nav` (files in the MkDocs `docs_dir` that are not in `nav` are never exported), and
   2. its front matter `tags` do not include `draft`.
   Excluded pages are listed in the export report with the reason.
 - An `include:` filter on nav paths selects a subset (e.g. one section for P1), so the

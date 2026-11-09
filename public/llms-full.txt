@@ -5,7 +5,7 @@
 Calling the APIs requires authentication (see the Authentication pages). Live building data is only available through the authenticated APIs or the separate, authenticated API MCP server, never through this kit. Examples use fictional identifiers.
 
 ---
-path: content/api/endpoints/legacy-widgets.md
+path: docs/api/endpoints/legacy-widgets.md
 title: Legacy Widgets
 section: Example API / Endpoints
 status: deprecated
@@ -20,7 +20,7 @@ status: deprecated
 `GET /api/v0/widgets` is kept for existing integrations only. Use [Sites](sites.md) instead.
 
 ---
-path: content/api/endpoints/sites.md
+path: docs/api/endpoints/sites.md
 title: Sites
 section: Example API / Endpoints
 ---
@@ -45,7 +45,7 @@ section: Example API / Endpoints
 See [Authentication](../overview/authentication.md) for the required header.
 
 ---
-path: content/api/overview/authentication.md
+path: docs/api/overview/authentication.md
 title: Authentication
 section: Example API / Overview
 ---
@@ -65,7 +65,7 @@ Authorization: Bearer <token>
 Next: [Sites](../endpoints/sites.md).
 
 ---
-path: content/api/overview/introduction.md
+path: docs/api/overview/introduction.md
 title: Introduction
 section: Example API / Overview
 ---
@@ -80,7 +80,7 @@ The Example API exposes a spatial hierarchy of sites, buildings and spaces.
 - Then list sites: see [Sites](../endpoints/sites.md).
 
 ---
-path: content/guides/first-request.md
+path: docs/guides/first-request.md
 title: Make your first request
 section: Guides
 ---
@@ -88,7 +88,7 @@ section: Guides
 # Make your first request
 
 > **Placeholder content.** This guide is fictional and will be rewritten against the real APIs.
-> It deliberately has no links into `content/api/`: those pages are replaced on every export.
+> It deliberately has no links into `docs/api/`: those pages are replaced on every export.
 
 1. Get a token (see the Authentication page).
 2. List sites.

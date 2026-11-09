@@ -5,7 +5,7 @@
 
 ## Decision
 
-- Each `nav` page becomes exactly one page in `content/api/`, at a mirrored path.
+- Each `nav` page becomes exactly one page in `docs/api/`, at a mirrored path.
   Long pages are flagged in the export report and fixed upstream rather than split here.
 - Every exported page gets front matter:
   - `title`: from the nav label
@@ -26,7 +26,7 @@
 - Images: by default, image files are **not** copied; each image is replaced with its alt
   text (`*[Image: <alt text>]*`). Screenshots can contain sensitive data that text-based
   scanners cannot detect. Images listed in the exporter config `images.allow` (reviewed by
-  a human) are copied to `content/api/img/` and linked. The export report lists every
+  a human) are copied to `docs/api/img/` and linked. The export report lists every
   image as copied or dropped.
 - The exporter is idempotent: no source change means no diff and no PR.
 - `mkdocs.yml` is found at the source root or one level below it, so no internal folder
@@ -34,7 +34,7 @@
 - The exporter lives in the internal docs repo (`.devkit/`, ADR-0003). Its settings
   (`include`, `images.allow`) are in `.devkit/export.yml` there.
 - Invocation, from the internal docs repo:
-  `uv run --project .devkit devkit-export --devkit <clone of this repo>` writes `content/api/`,
+  `uv run --project .devkit devkit-export --devkit <clone of this repo>` writes `docs/api/`,
   `_source.json` into the clone after `devkit validate` passes on a staged copy, then runs
   `devkit llms` there. The report goes to `.devkit/out/export-report.md` in the source repo.
   `--out <dir>` writes elsewhere (dry run); `--blocklist <path>` overrides the default.

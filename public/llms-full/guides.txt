@@ -5,7 +5,7 @@
 Calling the APIs requires authentication (see the Authentication pages). Live building data is only available through the authenticated APIs or the separate, authenticated API MCP server, never through this kit. Examples use fictional identifiers.
 
 ---
-path: content/guides/first-request.md
+path: docs/guides/first-request.md
 title: Make your first request
 section: Guides
 ---
@@ -13,7 +13,7 @@ section: Guides
 # Make your first request
 
 > **Placeholder content.** This guide is fictional and will be rewritten against the real APIs.
-> It deliberately has no links into `content/api/`: those pages are replaced on every export.
+> It deliberately has no links into `docs/api/`: those pages are replaced on every export.
 
 1. Get a token (see the Authentication page).
 2. List sites.

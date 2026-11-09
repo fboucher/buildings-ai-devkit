@@ -5,7 +5,7 @@
 
 ## Decision
 
-- Generated here by `devkit llms` from all of `content/`; settings in `llms.yml`.
+- Generated here by `devkit llms` from all of `docs/`; settings in `tools/llms.yml`.
 - Format follows https://llmstxt.org: H1 title, blockquote summary, H2 sections of links.
 - H2 sections mirror the top-level `nav` groups. Long reference material and release
   notes go under the spec's `## Optional` section.
@@ -19,6 +19,6 @@
   and `llms.txt` lists them under `## Full text`. The export report shows the token size.
 - Published on GitHub Pages of the org repo
   (`https://schneiderelectricbuildings.github.io/buildings-ai-devkit/llms.txt`) and also
-  committed under `public/` as a fallback. Page URLs are `<site>/content/<path>.md`.
+  committed under `public/` as a fallback. Page URLs are `<site>/docs/<path>.md`.
   A custom domain may be added later.
-- CI fails if `public/` is out of date with `content/` (`devkit llms --check`).
+- CI fails if `public/` is out of date with `docs/` (`devkit llms --check`).

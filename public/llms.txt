@@ -6,14 +6,14 @@ Calling the APIs requires authentication (see the Authentication pages). Live bu
 
 ## Example API
 
-- [Legacy Widgets](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/content/api/endpoints/legacy-widgets.md): (deprecated) Placeholder deprecated endpoint, used to test how deprecated pages are labelled.
-- [Sites](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/content/api/endpoints/sites.md): Placeholder endpoint page listing and retrieving sites in the Example API.
-- [Authentication](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/content/api/overview/authentication.md): Placeholder page describing how a client obtains a bearer token for the Example API.
-- [Introduction](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/content/api/overview/introduction.md): Placeholder overview of the Example API, used to develop the kit's generators before real content is exported.
+- [Legacy Widgets](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/docs/api/endpoints/legacy-widgets.md): (deprecated) Placeholder deprecated endpoint, used to test how deprecated pages are labelled.
+- [Sites](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/docs/api/endpoints/sites.md): Placeholder endpoint page listing and retrieving sites in the Example API.
+- [Authentication](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/docs/api/overview/authentication.md): Placeholder page describing how a client obtains a bearer token for the Example API.
+- [Introduction](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/docs/api/overview/introduction.md): Placeholder overview of the Example API, used to develop the kit's generators before real content is exported.
 
 ## Guides
 
-- [Make your first request](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/content/guides/first-request.md): Placeholder walkthrough from authentication to a first successful call to the Example API.
+- [Make your first request](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/docs/guides/first-request.md): Placeholder walkthrough from authentication to a first successful call to the Example API.
 
 ## Full text
 

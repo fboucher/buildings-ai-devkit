@@ -1,7 +1,7 @@
-"""Generate ``llms.txt`` and ``llms-full.txt`` from ``content/`` (ADR-0007).
+"""Generate ``llms.txt`` and ``llms-full.txt`` from ``docs/`` (ADR-0007).
 
 Format: https://llmstxt.org. Links point to the raw markdown pages published on GitHub
-Pages. API pages keep the source ``nav`` order recorded in ``content/api/_source.json``.
+Pages. API pages keep the source ``nav`` order recorded in ``docs/api/_source.json``.
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ SECTION_DIR = "llms-full"
 @dataclass(frozen=True)
 class Entry:
     path: str
-    """Repo-relative POSIX path, e.g. ``content/api/rest-api/sites.md``."""
+    """Repo-relative POSIX path, e.g. ``docs/api/rest-api/sites.md``."""
     title: str
     description: str
     group: str
@@ -76,7 +76,7 @@ def collect(content_dir: Path) -> list[Entry]:
             group = section.split(" / ")[0] if area == "api" else section
             entries.append(
                 Entry(
-                    path=f"content/{rel}",
+                    path=f"docs/{rel}",
                     title=str(meta.get("title") or path.stem),
                     description=str(meta.get("description") or ""),
                     group=group,

@@ -29,14 +29,14 @@ jobs:
 
       - name: Check generated files are current
         run: |
-          uv sync --locked
-          uv run devkit validate
-          uv run devkit llms --check
+          uv sync --locked --project tools
+          uv run --project tools devkit validate
+          uv run --project tools devkit llms --check
 
       - name: Assemble site
         run: |
           mkdir _site
-          cp -r content _site/content
+          cp -r docs _site/docs
           cp -r public/. _site/
           touch _site/.nojekyll
 
