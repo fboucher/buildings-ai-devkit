@@ -2,7 +2,7 @@
 # This file is PUBLIC. Never put internal hostnames, people, customer or site names here.
 
 plugin:
-  name: buildings-ai-devkit
+  name: se-ai-devkit
   author: Schneider Electric
   description: >-
     Agent Skill with the Schneider Electric EcoStruxure Building Data Platform API
@@ -19,4 +19,4 @@ skill:
     devices, measurement and historical values, datasets and the Brick-based data
     model. Use when writing, debugging or reviewing code that calls these APIs, or when
     answering questions about their endpoints, fields, queries, mutations or data model.
-  license: See the LICENSE file of the buildings-ai-devkit repository.
+  license: See the LICENSE file of the se-ai-devkit repository.

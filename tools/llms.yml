@@ -1,7 +1,7 @@
 # Settings for public/llms.txt and public/llms-full*.txt.
 # This file is PUBLIC. Never put internal hostnames, people, customer or site names here.
 
-site_url: https://schneiderelectricbuildings.github.io/buildings-ai-devkit
+site_url: https://schneiderelectricbuildings.github.io/se-ai-devkit
 title: Buildings AI Developer Kit
 summary: >-
   Agent-ready documentation for the Schneider Electric EcoStruxure Building Data

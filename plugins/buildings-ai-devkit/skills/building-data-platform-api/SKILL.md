@@ -1,7 +1,7 @@
 ---
 name: building-data-platform-api
 description: 'Reference documentation for the Schneider Electric EcoStruxure Building Data Platform APIs: REST API, GraphQL API and Event Hubs, including authentication, the spatial hierarchy (sites, buildings, floors, spaces), equipment, points, devices, measurement and historical values, datasets and the Brick-based data model. Use when writing, debugging or reviewing code that calls these APIs, or when answering questions about their endpoints, fields, queries, mutations or data model.'
-license: See the LICENSE file of the buildings-ai-devkit repository.
+license: See the LICENSE file of the se-ai-devkit repository.
 ---
 
 # Building Data Platform API documentation

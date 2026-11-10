@@ -49,7 +49,7 @@ A single index, following the [llms.txt](https://llmstxt.org) convention, that a
 can fetch:
 
 ```text
-https://schneiderelectricbuildings.github.io/buildings-ai-devkit/llms.txt
+https://schneiderelectricbuildings.github.io/se-ai-devkit/llms.txt
 ```
 
 | Agent | How |
@@ -73,12 +73,12 @@ task involves these APIs, and finds the right page without reading everything.
 **Claude Code** (Claude Code 2.1.275 or later):
 
 ```text
-/plugin install buildings-ai-devkit --marketplace SchneiderElectricBuildings/buildings-ai-devkit
+/plugin install se-ai-devkit --marketplace SchneiderElectricBuildings/se-ai-devkit
 ```
 
-Or in two steps: `/plugin marketplace add SchneiderElectricBuildings/buildings-ai-devkit`,
-then `/plugin install buildings-ai-devkit@buildings-ai-devkit`. Get new docs with
-`claude plugin update buildings-ai-devkit`, or turn on auto-update for this marketplace
+Or in two steps: `/plugin marketplace add SchneiderElectricBuildings/se-ai-devkit`,
+then `/plugin install se-ai-devkit@se-ai-devkit`. Get new docs with
+`claude plugin update se-ai-devkit`, or turn on auto-update for this marketplace
 under `/plugin` → Marketplaces (it is off by default).
 
 **GitHub Copilot, Cursor, OpenAI Codex:** download `building-data-platform-api.zip` from
@@ -118,7 +118,11 @@ official Brick definitions rather than copying them.
 - Live building data is only available through the authenticated APIs (or the separate,
   authenticated API MCP server), never through this kit.
 
+## Support
+
+**For issues with examples or documentation:**
+Please [open a GitHub issue](https://github.com/fboucher/se-ai-devkit/issues) with a clear description of the problem, including any error messages or examples of what's unclear.
+
 ## Contributing and license
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Licensing is being finalised: the tooling and the
-documentation will be licensed separately.
+See [CONTRIBUTING.md](CONTRIBUTING.md). The examples and documentation in this starter pack are released under the [MIT License](LICENSE), so you are free to use, copy, and modify them in your own projects, including commercial ones.

@@ -6,4 +6,4 @@ Calling the APIs requires authentication (see the Authentication pages). Live bu
 
 ## Full text
 
-- [All pages](https://schneiderelectricbuildings.github.io/buildings-ai-devkit/llms-full.txt): every page in one file
+- [All pages](https://schneiderelectricbuildings.github.io/se-ai-devkit/llms-full.txt): every page in one file

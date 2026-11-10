@@ -8,7 +8,7 @@ from devkit import llms
 from devkit.cli import main
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SITE = "https://schneiderelectricbuildings.github.io/buildings-ai-devkit"
+SITE = "https://schneiderelectricbuildings.github.io/se-ai-devkit"
 
 
 def page(title: str, description: str, section: str | None = None, extra: str = "") -> str:

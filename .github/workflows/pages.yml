@@ -17,7 +17,7 @@ concurrency:
 jobs:
   deploy:
     # Only the canonical org repo publishes. Forks and the personal dev repo never do.
-    if: github.repository == 'SchneiderElectricBuildings/buildings-ai-devkit'
+    if: github.repository == 'SchneiderElectricBuildings/se-ai-devkit'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

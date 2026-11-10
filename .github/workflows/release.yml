@@ -14,7 +14,7 @@ permissions:
 jobs:
   release:
     # Only the canonical org repo publishes releases.
-    if: github.repository == 'SchneiderElectricBuildings/buildings-ai-devkit'
+    if: github.repository == 'SchneiderElectricBuildings/se-ai-devkit'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

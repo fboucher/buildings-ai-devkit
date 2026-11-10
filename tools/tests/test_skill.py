@@ -12,7 +12,7 @@ from devkit import skill
 from devkit.cli import main
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SKILL_DIR = "plugins/buildings-ai-devkit/skills/building-data-platform-api"
+SKILL_DIR = "plugins/se-ai-devkit/skills/building-data-platform-api"
 
 
 def page(title: str, description: str, section: str | None, body: str, extra: str = "") -> str:
@@ -68,9 +68,9 @@ def run(repo: Path, *args: str) -> int:
 
 def test_generates_plugin_and_skill(repo: Path) -> None:
     assert run(repo) == 0
-    plugin = repo / "plugins" / "buildings-ai-devkit"
+    plugin = repo / "plugins" / "se-ai-devkit"
     manifest = json.loads((plugin / ".claude-plugin" / "plugin.json").read_text())
-    assert manifest["name"] == "buildings-ai-devkit"
+    assert manifest["name"] == "se-ai-devkit"
 
     skill_dir = repo / SKILL_DIR
     files = sorted(p.relative_to(skill_dir).as_posix() for p in skill_dir.rglob("*") if p.is_file())

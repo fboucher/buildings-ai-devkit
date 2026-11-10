@@ -3,7 +3,7 @@ revision = 3
 requires-python = ">=3.12"
 
 [[package]]
-name = "buildings-ai-devkit"
+name = "se-ai-devkit"
 version = "0.0.0"
 source = { editable = "." }
 dependencies = [

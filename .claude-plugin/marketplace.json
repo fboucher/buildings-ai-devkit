@@ -1,13 +1,13 @@
 {
-  "name": "buildings-ai-devkit",
+  "name": "se-ai-devkit",
   "description": "AI-ready developer kit for the Schneider Electric EcoStruxure Building Data Platform APIs.",
   "owner": {
     "name": "Schneider Electric Buildings"
   },
   "plugins": [
     {
-      "name": "buildings-ai-devkit",
-      "source": "./plugins/buildings-ai-devkit",
+      "name": "se-ai-devkit",
+      "source": "./plugins/se-ai-devkit",
       "description": "Agent Skill with the Schneider Electric EcoStruxure Building Data Platform API documentation, for writing and debugging integration code."
     }
   ]

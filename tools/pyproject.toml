@@ -1,5 +1,5 @@
 [project]
-name = "buildings-ai-devkit"
+name = "se-ai-devkit"
 version = "0.0.0"
 description = "Tooling that builds the AI-ready developer kit (llms.txt, Agent Skill, docs MCP server) from one content source."
 readme = "README.md"
