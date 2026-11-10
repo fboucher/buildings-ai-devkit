@@ -1,4 +1,4 @@
-# Buildings AI Developer Kit
+# Schneider Electric (SE) AI Developer Kit
 
 Everything your AI coding agent (Claude Code, GitHub Copilot, Cursor, Codex and others)
 needs to write working code against the **Schneider Electric EcoStruxure™ Building Data
@@ -32,9 +32,7 @@ All tools are generated from the same pages, so they always say the same thing.
 
 ## 📄 Agent-friendly docs
 
-The official Building Data Platform documentation, converted to plain markdown that agents
-read well: one page per topic, a short description on every page, no site navigation, and
-screenshots replaced by text. Pages for deprecated features are clearly labelled.
+The official Building Data Platform documentation, converted to plain markdown that agents read well: one page per topic, a short description on every page, no site navigation, and screenshots replaced by text. Pages for deprecated features are clearly labelled.
 
 | Folder | Contents |
 |---|---|
@@ -45,8 +43,7 @@ The pages are regenerated from the official product documentation on each docs r
 
 ## 🔗 llms.txt
 
-A single index, following the [llms.txt](https://llmstxt.org) convention, that any agent
-can fetch:
+A single index, following the [llms.txt](https://llmstxt.org) convention, that any agent can fetch:
 
 ```text
 https://schneiderelectricbuildings.github.io/se-ai-devkit/llms.txt
@@ -59,16 +56,11 @@ https://schneiderelectricbuildings.github.io/se-ai-devkit/llms.txt
 | Cursor | Add the URL as a custom doc (`@Docs` → *Add new doc*), then mention it with `@` |
 | GitHub Copilot | Add that sentence to `.github/copilot-instructions.md` |
 
-Need everything at once? `llms-full.txt` holds every page in one file, and
-`llms-full/<section>.txt` (for example `llms-full/rest-api.txt`) holds one section, for
-agents with a small context window. `llms.txt` links them all under **Full text**.
+Need everything at once? `llms-full.txt` holds every page in one file, and `llms-full/<section>.txt` (for example `llms-full/rest-api.txt`) holds one section, for agents with a small context window. `llms.txt` links them all under **Full text**.
 
 ## 🧩 Agent Skill
 
-An [Agent Skill](https://agentskills.io) named `building-data-platform-api`. It bundles every
-page, an index, rules for using the docs (look up the page first, use documented names
-only, authenticate, test against UAT) and a search script. Your agent loads it only when a
-task involves these APIs, and finds the right page without reading everything.
+An [Agent Skill](https://agentskills.io) named `building-data-platform-api`. It bundles every page, an index, rules for using the docs (look up the page first, use documented names only, authenticate, test against UAT) and a search script. Your agent loads it only when a task involves these APIs, and finds the right page without reading everything.
 
 **Claude Code** (Claude Code 2.1.275 or later):
 
@@ -76,14 +68,9 @@ task involves these APIs, and finds the right page without reading everything.
 /plugin install se-ai-devkit --marketplace SchneiderElectricBuildings/se-ai-devkit
 ```
 
-Or in two steps: `/plugin marketplace add SchneiderElectricBuildings/se-ai-devkit`,
-then `/plugin install se-ai-devkit@se-ai-devkit`. Get new docs with
-`claude plugin update se-ai-devkit`, or turn on auto-update for this marketplace
-under `/plugin` → Marketplaces (it is off by default).
+Or in two steps: `/plugin marketplace add SchneiderElectricBuildings/se-ai-devkit`, then `/plugin install se-ai-devkit@se-ai-devkit`. Get new docs with `claude plugin update se-ai-devkit`, or turn on auto-update for this marketplace under `/plugin` → Marketplaces (it is off by default).
 
-**GitHub Copilot, Cursor, OpenAI Codex:** download `building-data-platform-api.zip` from
-the latest [release](../../releases/latest) and unzip it into `.agents/skills/` in your
-project (or `~/.agents/skills/` for all your projects).
+**GitHub Copilot, Cursor, OpenAI Codex:** download `building-data-platform-api.zip` from the latest [release](../../releases/latest) and unzip it into `.agents/skills/` in your project (or `~/.agents/skills/` for all your projects).
 
 **claude.ai:** upload the same zip as a skill in your settings.
 
@@ -91,32 +78,22 @@ project (or `~/.agents/skills/` for all your projects).
 
 > 🚧 **Coming soon.**
 
-A public, read-only [MCP](https://modelcontextprotocol.io) server that lets your agent
-search the docs and fetch pages as tools (`docs_search`, `docs_get_page`), without
-installing the docs locally. It is separate from the authenticated API MCP server, which
-accesses live building data; the two can be used side by side.
+A public, read-only [MCP](https://modelcontextprotocol.io) server that lets your agent search the docs and fetch pages as tools (`docs_search`, `docs_get_page`), without installing the docs locally. It is separate from the authenticated API MCP server, which accesses live building data; the two can be used side by side.
 
 ## 🏢 Brick schema guidance
 
 > 🚧 **Coming soon.**
 
-Our APIs describe buildings with the [Brick schema](https://brickschema.org), an open
-ontology for building data. This guidance will cover which Brick version our APIs target,
-the classes and relationships they return, our conventions, and worked examples such as
-*"find all temperature sensors feeding a given air handling unit"*. It links to the
-official Brick definitions rather than copying them.
+Our APIs describe buildings with the [Brick schema](https://brickschema.org), an open ontology for building data. This guidance will cover which Brick version our APIs target, the classes and relationships they return, our conventions, and worked examples such as *"find all temperature sensors feeding a given air handling unit"*. It links to the official Brick definitions rather than copying them.
 
 ---
 
 ## Good to know
 
-- **Documentation only.** The kit contains no live data and no credentials. Calling the
-  APIs requires authentication, described in the *Authentication* pages.
-- **Test against UAT.** The API introduction pages document the UAT environment partners
-  and ISVs use for testing.
+- **Documentation only.** The kit contains no live data and no credentials. Calling the APIs requires authentication, described in the *Authentication* pages.
+- **Test against UAT.** The API introduction pages document the UAT environment partners and ISVs use for testing.
 - **Examples use fictional identifiers.** Replace them with IDs from your own environment.
-- Live building data is only available through the authenticated APIs (or the separate,
-  authenticated API MCP server), never through this kit.
+- Live building data is only available through the authenticated APIs (or the separate, authenticated API MCP server), never through this kit.
 
 ## Support
 
